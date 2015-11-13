@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>item</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>商品: <%= item.itemId %>のページ</title>
+    <link rel='stylesheet' href='/stylesheets/concat_style.css' />
   </head>
   <body>
-    <h1>item</h1>
+    <h1>tags</h1>
     <p>itemId : <%= item.itemId %></p>
     <p>itemImage : <%= item.itemImage %></p>
     <p>itemSupplier : <%= item.itemSupplier %></p>
     <p>itemSolidQuantity : <%= item.itemSolidQuantity %></p>
     <p>itemSalePrice : <%= item.itemSalePrice %></p>
     <p>itemTags : <%= item.itemTags %></p>
+    
+    
+    <div class="app">
+
+      <!-- Navbar content -->
+      <nav class="navbar navbar-light logo" style="background-color: #e3f2fd;">
+        Amezon.com
+      </nav>
+
+      <!-- breadcrumb -->
+      <ol class="breadcrumb" style="background-color: rgba(1, 1, 1, .05);">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Items</a></li>
+        <li class="active"><%= item.itemId %></li>
+      </ol>
+
+      <!-- container -->
+      <div class="container">
+
+        <!-- User Info -->
+        <div class="row p-a">
+          <div class="text-center col-xs-6">
+            <img src="/img/item/<%= item.itemImage %>" class="img-rounded" width="100" height="100" alt="商品<%= item.itemId %>のサムネイル画像">
+          </div>
+          <div class="col-xs-6">
+            <p><%= item.itemId %></p>
+            <p class="m-b-0"><%= item.itemSupplier %></p>
+            <p class="m-b-0">売上個数: <%= item.itemSolidQuantity %></p>
+            <p><%= item.itemSalePrice %>円</p>
+            <p>
+            	<% for (var i = 0;i < item.itemTags.length;i++){ %>
+    				<span class="label label-pill label-warning"><%= item.itemTags[i] %></span>
+				<% } %>
+            </p>
+          </div>
+        </div>
+        <div class="m-b-md">
+          <button type="button" class="btn btn-success btn-lg btn-block">この商品を購入する</button>
+        </div>
+      </div>
+
+      <!-- Users -->
+      <div class="users">
+        <h5 class="p-a">この商品をおすすめしているユーザー</h5>
+        <div class="row p-l p-r m-r-0">
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/user/Us000001.png" alt="商品Us000001のサムネイル画像" class="img-circle" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/user/Us000002.png" alt="商品Us000002のサムネイル画像" class="img-circle" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/user/Us000003.png" alt="商品Us000003のサムネイル画像" class="img-circle" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/user/Us000004.png" alt="商品Us000004のサムネイル画像" class="img-circle" width="48" height="48">
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="posts">
+        <h5 class="p-a">最近投稿されたレビュー</h5>
+        <div class="row p-l p-r">
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000000.png" alt="商品It000000のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000001.png" alt="商品It000001のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000002.png" alt="商品It000002のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000003.png" alt="商品It000003のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000004.png" alt="商品It000004のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000005.png" alt="商品It000005のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+          <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/It000006.png" alt="商品It000006のサムネイル画像" class="img-rounded" width="48" height="48">
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-light bg-inverse">
+        &copy; 2015 Amezon.com
+      </nav>
+
+    </div>
+    
   </body>
 </html>
