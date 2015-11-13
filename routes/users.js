@@ -5,9 +5,16 @@ var mongo = require('../lib/mongo.js');
 /* GET users listing. */
 router.get('/:userId', function(req, res, next) {
   var userId = req.params.userId;
-  mongo.find('user', {userId: userId}, {userId: true, userPublicScore: true, userImage: true}, function(result){
-    console.log(result);
-    res.render('user', {user: result[0]});
+  mongo.find('user', {userId: userId}, {userId: true, userPublicScore: true, userImage: true, userFriends: true}, function(result){
+    // console.log(result);
+    var r = result[0];
+    var user = {
+      userId: r.userId,
+      userPublicScore: r.userPublicScore,
+      userImage: r.userImage,
+      userFriends: r.userFriends.split(',');
+    };
+    res.render('user', user);
   });
 });
 
