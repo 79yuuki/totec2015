@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require('../lib/mongo.js');
-var async = require('async');
+var async = require('neo-async');
 var searchItem = require('.searchItem');
 
 /* GET users listing. */
@@ -11,8 +11,6 @@ router.get('/:userId', function(req, res, next) {
     // console.log(result);
     var r = result[0];
     var parallels = [];
-    parallels.push(function(done){
-    });
     var user = {
       userId: r.userId,
       userPublicScore: r.userPublicScore,
