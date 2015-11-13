@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
   }
 
   if (findByItemSupplier) {
-    _.assign(mongoQuery, {itemNo: findByItemSupplier});
+    _.assign(mongoQuery, {itemSupplier: findByItemSupplier});
   }
 
   if (findByItemSoldQuantityGTE) {
