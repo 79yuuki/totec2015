@@ -19,10 +19,10 @@ router.get('/', function(req, res, next) {
   
   if (findByUserId) {
     _.assign(mongoQuery, {userId: findByUserId});
-  }/*
-  if (findByUserPublicScoreGTE) {
-    _.assign(mongoQuery, {userPublicScore: {"$gte": findByUserPublicScoreGTE}});
   }
+  if (findByUserPublicScoreGTE) {
+    _.assign(mongoQuery, {userPublicScore: {$gte: Number(findByUserPublicScoreGTE)}});
+  }/*
   if (findByUserPublicScoreLTE) {
     _.assign(mongoQuery, {userPublicScore: {"$lte": findByUserPublicScoreLTE}});
   }
@@ -37,7 +37,11 @@ router.get('/', function(req, res, next) {
   if (findByUserFriendsIncludeUserIds) {
     //_.assign(mongoQuery, {userFriends: {$in: }});
   }*/
-  mongo.find('user', mongoQuery, {}, function(result){
+
+
+  var limit = query.limit;
+console.log('mongo query ===', mongoQuery);
+  mongo.find('user', mongoQuery, {}, limit, function(result){
     // console.log(result);
 
     res.json({result: true, data: result});
