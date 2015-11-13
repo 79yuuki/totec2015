@@ -30,20 +30,21 @@ router.get('/', function(req, res, next) {
     // 友達の数をデータ長(１人８文字+カンマ)に変換
     var friendLength = Number(findByUserFriendsNumberGTE) * 9 - 1;
     _.assign(mongoQuery, {"$where": "this.userFriends.length >= " + friendLength});
-  }/*
+  }
   if (findByUserFriendsNumberLTE) {
-    _.assign(mongoQuery, {userFriends: {"$gte": findByUserFriendsNumberLTE.split(',').length}});
+    var friendLength = Number(findByUserFriendsNumberLTE) * 9 - 1;
+    _.assign(mongoQuery, {"$where": "this.userFriends.length <= " + friendLength});
   }
   if (findByUserFriendsIncludeUserIds) {
     //_.assign(mongoQuery, {userFriends: {$in: }});
-  }*/
+  }
+  //TODO not include
 
 
   var limit = query.limit;
 console.log('mongo query ===', mongoQuery);
   mongo.find('user', mongoQuery, {}, limit, function(result){
     // console.log(result);
-    
     _.map(result, function(r){
       r.userFriends = r.userFriends.split(',')
     });
