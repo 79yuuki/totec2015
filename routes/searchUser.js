@@ -49,7 +49,7 @@ function searchUser(req, res, next) {
     _.forEach(findByUserFriendsNotIncludeUserIds.split(','), function(fuserId){
       regArr.push(fuserId);
     });
-    _.assign(mongoQuery, { userFriends: {"$regex": "^(" + regArr.join('|') + ")"}});
+    _.assign(mongoQuery, { userFriends: {"$regex": "^(?!.*(" + regArr.join('|') + "))"}});
   }
 
 
