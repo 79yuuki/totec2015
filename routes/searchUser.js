@@ -34,12 +34,22 @@ router.get('/', function(req, res, next) {
   if (findByUserFriendsNumberLTE) {
     var friendLength = Number(findByUserFriendsNumberLTE) * 9 - 1;
     _.assign(mongoQuery, {"$where": "this.userFriends.length <= " + friendLength});
-  }/*
+  }
   if (findByUserFriendsIncludeUserIds) {
-    _.assign(mongoQuery, {"$where": "this.userFriends.indexof("});
-    _.assign(mongoQuery, {userFriends: {$in: }});
-  }*/
-  //TODO not include
+    var regArr = [];
+    _.forEach(findByUserFriendsIncludeUserIds.split(','), function(fuserId){
+      regArr.push(fuserId);
+    });
+    _.assign(mongoQuery, { userFriends: {"$regex": regArr.join('|')}});
+  }
+  if (findByUserFriendsNotIncludeUserIds) {
+    var regArr = [];
+    _.forEach(findByUserFriendsNotIncludeUserIds.split(','), function(fuserId){
+      regArr.push(fuserId);
+    });
+    _.assign(mongoQuery, { userFriends: {"$regex": "^(" + regArr.join('|') + ")"}});
+  }
+
 
 
   var limit = query.limit;
