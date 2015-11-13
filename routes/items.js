@@ -5,7 +5,7 @@ var mongo = require('../lib/mongo.js');
 /* GET users listing. */
 router.get('/:itemId', function(req, res, next) {
   var itemId = req.params.itemId;
-  mongo.find('item', {itemId: itemId}, {itemId: true, itemImage: true, itemSupplier: true, itemSolidQuantity: true, itemSalePrice: true, itemTags: true}, function(result){
+  mongo.find('item', {itemId: itemId}, {itemId: true, itemImage: true, itemSupplier: true, itemSolidQuantity: true, itemSalePrice: true, itemTags: true}, undefined, function(result){
     // console.log(result);
     var r = result[0];
     var item = {

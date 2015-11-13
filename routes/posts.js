@@ -6,7 +6,7 @@ var async = require('neo-async');
 /* GET users listing. */
 router.get('/:postId', function(req, res, next) {
   var postId = req.params.postId;
-  mongo.find('post', {postId: postId}, {postId: true, postItemId: true, postUserId: true, postDateTime: true, postItemScore: true, postItemState: true, postLikeUsers: true}, function(result){
+  mongo.find('post', {postId: postId}, {postId: true, postItemId: true, postUserId: true, postDateTime: true, postItemScore: true, postItemState: true, postLikeUsers: true}, undefined, function(result){
     var r = result[0];
     var d = new Date(r.postDateTime * 1000);
     var date = d.getYear() + "年" + (d.getMonth() + 1) + '月' + d.getDate() + "日 " 
