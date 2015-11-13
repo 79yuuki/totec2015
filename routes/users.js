@@ -12,9 +12,9 @@ router.get('/:userId', function(req, res, next) {
       userId: r.userId,
       userPublicScore: r.userPublicScore,
       userImage: r.userImage,
-      userFriends: r.userFriends.split(',');
+      userFriends: r.userFriends.split(',')
     };
-    res.render('user', user);
+    res.render('user', {user: user});
   });
 });
 
