@@ -2,10 +2,9 @@
 <html>
   <head>
     <title>ユーザー: <%= user.userId %>のページ</title>
-    <link rel='stylesheet' href='/stylesheets/concat_user_style.css' />
+    <style>button,h5{color:inherit}h5,ol,p{margin-top:0}.btn,img{vertical-align:middle}.btn,button{cursor:pointer}.container:after,.navbar:after,.row:after{clear:both}.btn,.label{text-align:center;white-space:nowrap}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}nav{display:block}a:active,a:hover{outline:0}img{border:0}button{font:inherit;overflow:visible;text-transform:none;-webkit-appearance:button;margin:0;line-height:inherit}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}.col-xs-3,.col-xs-6,.container{padding-right:.9375rem;padding-left:.9375rem}@media print{*,:after,:before{text-shadow:none!important;-webkit-box-shadow:none!important;box-shadow:none!important}a,a:visited{text-decoration:underline}img{page-break-inside:avoid;max-width:100%!important}p{orphans:3;widows:3}.navbar{display:none}.label{border:1px solid #000}}.container:after,.container:before,.row:after,.row:before{display:table;content:" "}html{-webkit-box-sizing:border-box;box-sizing:border-box;font-size:16px;-webkit-tap-highlight-color:transparent}*,:after,:before{-webkit-box-sizing:inherit;box-sizing:inherit}@-ms-viewport{width:device-width}@viewport{width:device-width}body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.5;color:#373a3c;background-color:#fff}.btn-primary-outline,a{background-color:transparent}h5{font-family:inherit;font-weight:500;line-height:1.1;margin-bottom:.5rem;font-size:1.25rem}.breadcrumb,ol,p{margin-bottom:1rem}a{color:#0275d8;text-decoration:none}a:focus,a:hover{color:#014c8c;text-decoration:underline}a:focus{outline:dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}.img-rounded{border-radius:.3rem}.img-circle{border-radius:50%}.container{margin-right:auto;margin-left:auto}@media (min-width:34em){.container{max-width:34rem}}@media (min-width:48em){.container{max-width:45rem}}@media (min-width:62em){.container{max-width:60rem}}@media (min-width:75em){.container{max-width:72.25rem}}.row{margin-right:-.9375rem;margin-left:-.9375rem}.col-xs-3,.col-xs-6{position:relative;min-height:1px;float:left}.col-xs-3{width:25%}.col-xs-6{width:50%}.form-control::-ms-expand{background-color:transparent;border:0}.form-control::-moz-placeholder{color:#999;opacity:1}.form-control:-ms-input-placeholder{color:#999;opacity:1}.form-control::placeholder{color:#999;opacity:1}.btn{display:inline-block;padding:.375rem 1rem;font-size:1rem;font-weight:400;line-height:1.5;-ms-touch-action:manipulation;touch-action:manipulation;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:.0625rem solid transparent;border-radius:.25rem}.btn:active:focus,.btn:focus{outline:dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}.btn:focus,.btn:hover{text-decoration:none}.btn:active{background-image:none;outline:0}.btn:disabled{cursor:not-allowed;opacity:.65}.btn-primary-outline{color:#0275d8;background-image:none;border-color:#0275d8}.btn-primary-outline:active,.btn-primary-outline:focus,.btn-primary-outline:hover{color:#fff;background-color:#0275d8;border-color:#0275d8}.btn-primary-outline:disabled:focus,.btn-primary-outline:disabled:hover{border-color:#43a7fd}.btn-lg{padding:.75rem 1.25rem;font-size:1.25rem;line-height:1.333333;border-radius:.3rem}.breadcrumb,.label{border-radius:.25rem}.btn-block{display:block;width:100%}.c-select::-ms-expand{opacity:0}.navbar{position:relative;padding:.5rem 1rem}.navbar:after,.navbar:before{display:table;content:" "}.breadcrumb>li,.label{display:inline-block}@media (min-width:34em){.navbar{border-radius:.25rem}}.breadcrumb{padding:.75rem 1rem;list-style:none;background-color:#eceeef}.breadcrumb>li+li:before{padding-right:.5rem;padding-left:.5rem;color:#818a91;content:"/ "}.breadcrumb>.active{color:#818a91}.label{padding:.25em .4em;font-size:75%;font-weight:700;line-height:1;color:#fff;vertical-align:baseline}.label-pill{padding-right:.6em;padding-left:.6em;border-radius:1rem}.label-default{background-color:#818a91}@-webkit-keyframes progress-bar-stripes{from{background-position:1rem 0}to{background-position:0 0}}@-o-keyframes progress-bar-stripes{from{background-position:1rem 0}to{background-position:0 0}}@keyframes progress-bar-stripes{from{background-position:1rem 0}to{background-position:0 0}}.progress[value]::-webkit-progress-bar{background-color:#eee;border-radius:.25rem}.progress[value]::-webkit-progress-value::before{content:attr(value)}.progress[value]::-webkit-progress-value{background-color:#0074d9;border-top-left-radius:.25rem;border-bottom-left-radius:.25rem}.progress[value="100"]::-webkit-progress-value{border-top-right-radius:.25rem;border-bottom-right-radius:.25rem}.progress-striped[value]::-webkit-progress-value{background-image:-webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-image:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);-webkit-background-size:1rem 1rem;background-size:1rem 1rem}.progress-striped[value]::-moz-progress-bar{background-image:linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);background-size:1rem 1rem}.progress-animated[value]::-webkit-progress-value{-webkit-animation:progress-bar-stripes 2s linear infinite;animation:progress-bar-stripes 2s linear infinite}.progress-animated[value]::-moz-progress-bar{animation:progress-bar-stripes 2s linear infinite}.progress-success[value]::-webkit-progress-value{background-color:#5cb85c}.progress-success[value]::-moz-progress-bar{background-color:#5cb85c}.progress-info[value]::-webkit-progress-value{background-color:#5bc0de}.progress-info[value]::-moz-progress-bar{background-color:#5bc0de}.progress-warning[value]::-webkit-progress-value{background-color:#f0ad4e}.progress-warning[value]::-moz-progress-bar{background-color:#f0ad4e}.progress-danger[value]::-webkit-progress-value{background-color:#d9534f}.progress-danger[value]::-moz-progress-bar{background-color:#d9534f}.list-group{padding-left:0;margin-bottom:0}.list-group-item{position:relative;display:block;padding:.75rem 1.25rem;margin-bottom:-.0625rem;background-color:#fff;border:.0625rem solid #ddd}.list-group-item:first-child{border-top-left-radius:.25rem;border-top-right-radius:.25rem}.list-group-item:last-child{margin-bottom:0;border-bottom-right-radius:.25rem;border-bottom-left-radius:.25rem}button.list-group-item{width:100%;color:#555;text-align:inherit}button.list-group-item:focus,button.list-group-item:hover{color:#555;text-decoration:none;background-color:#f5f5f5}.text-right{text-align:right}.text-center{text-align:center}.bg-inverse{color:#eceeef;background-color:#373a3c}.m-r-0{margin-right:0!important}.m-r{margin-right:1rem!important}.m-b-md{margin-bottom:1.5rem!important}.p-a-0{padding:0!important}.p-a{padding:1rem!important}.p-r{padding-right:1rem!important}.p-b{padding-bottom:1rem!important}.p-l{padding-left:1rem!important}.p-a-md{padding:1.5rem!important}.app{color:#333}.logo{font-family:Raleway,sans-serif}@font-face{font-family:Raleway;font-style:normal;font-weight:500;src:local('Raleway Medium'),local('Raleway-Medium'),url(https://fonts.gstatic.com/s/raleway/v9/CcKI4k9un7TZVWzRVT-T8y3USBnSvpkopQaUR-2r7iU.ttf) format('truetype')}</style>
   </head>
   <body>
-<%= searchItem %>
     <div class="app">
 
       <!-- Navbar content -->
@@ -72,27 +71,11 @@
       <div class="items">
         <h5 class="p-a">このユーザーのおすすめ商品</h5>
         <div class="row p-l p-r m-r-0">
+          <% for (var i = 0;i < searchItem.length;i++){ %>
           <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000000.png" alt="商品It000000のサムネイル画像" class="img-rounded" width="48" height="48">
+            <img src="/img/item/<%= searchItem[i] %>" alt="商品It000000のサムネイル画像" class="img-rounded" width="48" height="48">
           </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000001.png" alt="商品It000001のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000002.png" alt="商品It000002のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000003.png" alt="商品It000003のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000004.png" alt="商品It000004のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000005.png" alt="商品It000005のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000006.png" alt="商品It000006のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
+		  <% } %>
         </div>
       </div>
 
@@ -100,27 +83,11 @@
       <div class="posts">
         <h5 class="p-a">最近投稿されたレビュー</h5>
         <div class="row p-l p-r">
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000000.png" alt="商品It000000のサムネイル画像" class="img-rounded" width="48" height="48">
+          <% for (var i = 0;i < searchItem.length;i++){ %>
+           <div class="col-xs-3 p-a-0 p-b text-center">
+            <img src="/img/item/<%= searchItem[i] %>" alt="商品It000000のサムネイル画像" class="img-rounded" width="48" height="48">
           </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000001.png" alt="商品It000001のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000002.png" alt="商品It000002のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000003.png" alt="商品It000003のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000004.png" alt="商品It000004のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000005.png" alt="商品It000005のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
-          <div class="col-xs-3 p-a-0 p-b text-center">
-            <img src="/img/item/It000006.png" alt="商品It000006のサムネイル画像" class="img-rounded" width="48" height="48">
-          </div>
+          <% } %>
         </div>
       </div>
 
