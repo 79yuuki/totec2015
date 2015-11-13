@@ -19,6 +19,8 @@ function searchPost(req, res, next) {
   // 
   var findByPostItemState = decodeURIComponent(query.findByPostItemState || '');
   var findByPostItemStateNotEQ = decodeURIComponent(query.findByPostItemStateNotEQ || '');
+  var findByPostLikeUsersNumberGTE = query.findByPostLikeUsersNumberGTE;
+  var findByPostLikeUsersNumberLTE = query.findByPostLikeUsersNumberLTE;
 
   //
   var mongoQuery = {};
@@ -61,6 +63,18 @@ function searchPost(req, res, next) {
 
   if (findByPostItemStateNotEQ) {
     _.assign(mongoQuery, {postItemState: {$ne: findByPostItemStateNotEQ}});
+  }
+
+  if (findByPostLikeUsersNumberGTE) {
+    // 友達の数をデータ長(１人８文字+カンマ)に変換
+    var likeUsersLength = Number(findByPostLikeUsersNumberGTE) * 9 - 1;
+    _.assign(mongoQuery, {"$where": "this.postLikeUsers.length >= " + likeUsersLength});
+  }
+
+  if (findByPostLikeUsersNumberLTE) {
+    // 友達の数をデータ長(１人８文字+カンマ)に変換
+    var likeUsersLength = Number(findByPostLikeUsersNumberLTE) * 9 - 1;
+    _.assign(mongoQuery, {"$where": "this.postLikeUsers.length <= " + likeUsersLength});
   }
 
   var limit = query.limit;
