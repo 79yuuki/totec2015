@@ -22,15 +22,15 @@ router.get('/', function(req, res, next) {
   }
   if (findByUserPublicScoreGTE) {
     _.assign(mongoQuery, {userPublicScore: {$gte: Number(findByUserPublicScoreGTE)}});
-  }/*
+  }
   if (findByUserPublicScoreLTE) {
-    _.assign(mongoQuery, {userPublicScore: {"$lte": findByUserPublicScoreLTE}});
+    _.assign(mongoQuery, {userPublicScore: {$lte: Number(findByUserPublicScoreLTE)}});
   }
   if (findByUserFriendsNumberGTE) {
     // 友達の数をデータ長(１人８文字+カンマ)に変換
     var friendLength = Number(findByUserFriendsNumberGTE) * 9 - 1;
     _.assign(mongoQuery, {"$where": "this.userFriends.length >= " + friendLength});
-  }
+  }/*
   if (findByUserFriendsNumberLTE) {
     _.assign(mongoQuery, {userFriends: {"$gte": findByUserFriendsNumberLTE.split(',').length}});
   }
@@ -43,6 +43,10 @@ router.get('/', function(req, res, next) {
 console.log('mongo query ===', mongoQuery);
   mongo.find('user', mongoQuery, {}, limit, function(result){
     // console.log(result);
+    
+    _.map(result, function(r){
+      r.userFriends = r.userFriends.split(',')
+    });
 
     res.json({result: true, data: result});
   });
