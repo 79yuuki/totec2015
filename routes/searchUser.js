@@ -18,42 +18,37 @@ router.get('/', function(req, res, next) {
   var mongoQuery = {};
   
   if (findByUserId) {
-    _.assign(mongoQuery, findByUserId);
+    _.assign(mongoQuery, {userId: findByUserId});
   }
   if (findByUserPublicScoreGTE) {
-    _.assign(mongoQuery, {userPublicScore: {$gte: findByUserPublicScoreGTE}});
+    _.assign(mongoQuery, {userPublicScore: {$gte: Number(findByUserPublicScoreGTE)}});
   }
   if (findByUserPublicScoreLTE) {
-    _.assign(mongoQuery, {userPublicScore: {$lte: findByUserPublicScoreLTE}});
+    _.assign(mongoQuery, {userPublicScore: {$lte: Number(findByUserPublicScoreLTE)}});
   }
   if (findByUserFriendsNumberGTE) {
     // 友達の数をデータ長(１人８文字+カンマ)に変換
     var friendLength = Number(findByUserFriendsNumberGTE) * 9 - 1;
-    _.assign(mongoQuery, {userFriends: {$gte: }});
-  }
+    _.assign(mongoQuery, {"$where": "this.userFriends.length >= " + friendLength});
+  }/*
   if (findByUserFriendsNumberLTE) {
-    _.assign(mongoQuery, {userFriends: {$gte: findByUserFriendsNumberLTE.split(',').length}});
+    _.assign(mongoQuery, {userFriends: {"$gte": findByUserFriendsNumberLTE.split(',').length}});
   }
   if (findByUserFriendsIncludeUserIds) {
-    _.assign(mongoQuery, {userFriends: {$in: }});
-  }
-  mongo.find('user', {userId: findByUserId}, {userId: true, userPublicScore: true, userFriends: true}, function(result){
+    //_.assign(mongoQuery, {userFriends: {$in: }});
+  }*/
+
+
+  var limit = query.limit;
+console.log('mongo query ===', mongoQuery);
+  mongo.find('user', mongoQuery, {}, limit, function(result){
     // console.log(result);
-    var r = result[0];
+    
+    _.map(result, function(r){
+      r.userFriends = r.userFriends.split(',')
+    });
 
-    if (findByUserPublicScoreGTE) {
-      if (findByUserPublicScoreGTE < r.userPublicScore) {
-        res.json();
-      }
-    }
-
-    var user = {
-      userId: r.userId,
-      userPublicScore: r.userPublicScore,
-      userImage: r.userImage,
-      userFriends: r.userFriends.split(',')
-    };
-    res.json(r);
+    res.json({result: true, data: result});
   });
 });
 
