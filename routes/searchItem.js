@@ -4,7 +4,8 @@ var mongo = require('../lib/mongo.js');
 var _ = require('lodash');
 
 /* GET items listing. */
-router.get('/', function(req, res, next) {
+router.get('/', searchItem);
+function searchItem(req, res, next) {
   var query = req.query;
   // test1
   var findByItemId = query.findByItemId;
@@ -55,6 +56,6 @@ console.log('mongo query ===', mongoQuery);
 
     res.json({result: true, data: result});
   });
-});
+};
 
 module.exports = router;
