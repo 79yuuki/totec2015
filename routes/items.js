@@ -14,7 +14,7 @@ router.get('/:itemId', function(req, res, next) {
       itemSupplier: r.itemSupplier,
       itemSolidQuantity: r.itemSolidQuantity,
       itemSalePrice: r.itemSalePrice,
-      itemTags: r.itemTags
+      itemTags: r.itemTags.split(',')
     };
     res.render('item', {item: item});
   });
