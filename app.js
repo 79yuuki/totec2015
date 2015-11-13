@@ -11,6 +11,7 @@ var items = require('./routes/items');
 var posts = require('./routes/posts');
 
 var searchUser = require('./routes/searchUser');
+var searchItem = require('./routes/searchItem');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/item', items);
 app.use('/post', posts);
 
 app.use('/searchUser', searchUser);
+app.use('/searchItem', searchItem);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
