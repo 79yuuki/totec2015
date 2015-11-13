@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongo = require('../lib/mongo.js');
 var async = require('neo-async');
-var searchItem = require('.searchItem');
+var searchItem = require('./searchItem');
 
 /* GET users listing. */
 router.get('/:userId', function(req, res, next) {
