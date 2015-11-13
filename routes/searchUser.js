@@ -6,7 +6,7 @@ var _ = require('lodash');
 /* GET users listing. */
 router.get('/', searchUser);
 
-function(req, res, next) {
+function searchUser(req, res, next) {
   var query = req.query;
   // test1
   var findByUserId = query.findByUserId;
