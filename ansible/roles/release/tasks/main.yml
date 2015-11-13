@@ -1,0 +1,4 @@
+---
+
+- name: be sure /opt/totec/totec2015/ansible/scripts/release.sh executed
+  command: sh /opt/totec/totec2015/ansible/scripts/release.sh

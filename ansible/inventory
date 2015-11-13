@@ -1,7 +1,7 @@
 [server]
 52.192.133.239
 52.192.134.144
-52.192.132.15
+#52.192.132.15
 
 [server:vars]
 ansible_ssh_user=player
