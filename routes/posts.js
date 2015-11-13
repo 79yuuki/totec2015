@@ -14,12 +14,12 @@ router.get('/:postId', function(req, res, next) {
 
     var parallels = [];
     parallels.push(function (done){
-      mongo.find('item', {itemId: r.postItemId}, {itemId: true, itemImage: true, itemSupplier:true, itemSoldQuantity:true, itemSalePrice: true, itemTags: true}, function(itemResult){
+      mongo.find('item', {itemId: r.postItemId}, {itemId: true, itemImage: true, itemSupplier:true, itemSoldQuantity:true, itemSalePrice: true, itemTags: true}, undefined, function(itemResult){
         done({item: itemResult[0]});
       });
     });
     parallels.push(function (done){
-      mongo.find('user', {userId: r.postUserId}, {userImage: true}, function(userResult){
+      mongo.find('user', {userId: r.postUserId}, {userImage: true}, undefined, function(userResult){
         done(userResult[0].userImage);
       });
     });

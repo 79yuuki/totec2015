@@ -34,10 +34,11 @@ router.get('/', function(req, res, next) {
   if (findByUserFriendsNumberLTE) {
     var friendLength = Number(findByUserFriendsNumberLTE) * 9 - 1;
     _.assign(mongoQuery, {"$where": "this.userFriends.length <= " + friendLength});
-  }
+  }/*
   if (findByUserFriendsIncludeUserIds) {
-    //_.assign(mongoQuery, {userFriends: {$in: }});
-  }
+    _.assign(mongoQuery, {"$where": "this.userFriends.indexof("});
+    _.assign(mongoQuery, {userFriends: {$in: }});
+  }*/
   //TODO not include
 
 
