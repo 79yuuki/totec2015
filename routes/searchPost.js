@@ -16,6 +16,11 @@ function searchPost(req, res, next) {
   var findByPostItemScoreGTE = query.findByPostItemScoreGTE;
   var findByPostItemScoreLTE = query.findByPostItemScoreLTE;
 
+  // 
+  var findByPostItemState = decodeURIComponent(query.findByPostItemState || '');
+  var findByPostItemStateNotEQ = decodeURIComponent(query.findByPostItemStateNotEQ || '');
+
+  //
   var mongoQuery = {};
   
   if (findByPostId) {
@@ -48,6 +53,14 @@ function searchPost(req, res, next) {
 
   if (findByPostItemScoreLTE) {
     _.assign(mongoQuery, {postItemScore: {$lte: Number(findByPostItemScoreLTE)}});
+  }
+
+  if (findByPostItemState) {
+    _.assign(mongoQuery, {postItemState: findByPostItemState});
+  }
+
+  if (findByPostItemStateNotEQ) {
+    _.assign(mongoQuery, {postItemState: {$ne: findByPostItemStateNotEQ}});
   }
 
   var limit = query.limit;
