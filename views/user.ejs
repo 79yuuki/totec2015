@@ -39,8 +39,8 @@
 
       <!-- Friends -->
       <div class="friends">
-        <h5 class="p-a">フレンド <span class="label label-pill label-default">4</span></h5>
-        <div class="list-group">
+        <h5 class="p-a">フレンド <span class="label label-pill label-default"><%= user.userFriends.length %></span></h5>
+        <div class="list-group">        
           <button type="button" class="list-group-item">
             <a href="#" style="color: #333;">
               <img src="/img/user/Us000001.png" alt="Us000001のサムネイル画像" class="img-circle m-r" width="24" height="24">Us000001
@@ -56,11 +56,14 @@
               <img src="/img/user/Us000003.png" alt="Us000003のサムネイル画像" class="img-circle m-r" width="24" height="24">Us000003
             </a>
           </button>
-          <button type="button" class="list-group-item">
-            <div class="text-right">
-              <a href="#">もっと見る</a>
-            </div>
-          </button>
+          
+          <% if (user.userFriends.length > 3) { %>
+          	<button type="button" class="list-group-item">
+            	<div class="text-right">
+              		<a href="#">もっと見る</a>
+            	</div>
+          	</button>
+          <% } %>
         </div>
       </div>
 
