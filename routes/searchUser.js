@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require('../lib/mongo.js');
+var _ = require('lodash');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -15,7 +16,27 @@ router.get('/', function(req, res, next) {
   var findByUserFriendsNotIncludeUserIds = query.findByUserFriendsNotIncludeUserIds;
 
   var mongoQuery = {};
-
+  
+  if (findByUserId) {
+    _.assign(mongoQuery, findByUserId);
+  }
+  if (findByUserPublicScoreGTE) {
+    _.assign(mongoQuery, {userPublicScore: {$gte: findByUserPublicScoreGTE}});
+  }
+  if (findByUserPublicScoreLTE) {
+    _.assign(mongoQuery, {userPublicScore: {$lte: findByUserPublicScoreLTE}});
+  }
+  if (findByUserFriendsNumberGTE) {
+    // 友達の数をデータ長(１人８文字+カンマ)に変換
+    var friendLength = Number(findByUserFriendsNumberGTE) * 9 - 1;
+    _.assign(mongoQuery, {userFriends: {$gte: }});
+  }
+  if (findByUserFriendsNumberLTE) {
+    _.assign(mongoQuery, {userFriends: {$gte: findByUserFriendsNumberLTE.split(',').length}});
+  }
+  if (findByUserFriendsIncludeUserIds) {
+    _.assign(mongoQuery, {userFriends: {$in: }});
+  }
   mongo.find('user', {userId: findByUserId}, {userId: true, userPublicScore: true, userFriends: true}, function(result){
     // console.log(result);
     var r = result[0];
