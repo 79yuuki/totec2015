@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   var query = req.query;
   // test1
   var findByItemId = query.findByItemId;
-  var findByItemSupplier = query.findByItemSupplier;
+  var findByItemSupplier = decodeURIComponent(query.findByItemSupplier);
   var findByItemSoldQuantityGTE = query.findByItemSoldQuantityGTE;
   var findByItemSoldQuantityLTE = query.findByItemSoldQuantityLTE;
   var findByItemSalePriceGTE = query.findByItemSalePriceGTE;
