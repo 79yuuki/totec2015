@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
   var findByItemSoldQuantityLTE = query.findByItemSoldQuantityLTE;
   var findByItemSalePriceGTE = query.findByItemSalePriceGTE;
   var findByItemSalePriceLTE = query.findByItemSalePriceLTE;
-  var findByItemTagsIncludeAll = query.findByItemTagsIncludeAll;
-  var findByItemTagsIncludeAny = query.findByItemTagsIncludeAny;
+  var findByItemTagsIncludeAll = decodeURIComponent(query.findByItemTagsIncludeAll || '');
+  var findByItemTagsIncludeAny = decodeURIComponent(query.findByItemTagsIncludeAny || '');
 
   var mongoQuery = {};
   
