@@ -1,4 +1,4 @@
 # totec2015
-FUCK
+FUCK ver
 
 社内ISUCONみたいなやつ。速さ重視の大量のKUSOコード。
