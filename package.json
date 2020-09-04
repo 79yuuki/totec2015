@@ -12,7 +12,7 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "lodash": "^3.10.1",
-    "mongodb": "^2.0.48",
+    "mongodb": "^3.6.1",
     "morgan": "~1.6.1",
     "neo-async": "^1.6.0",
     "serve-favicon": "~2.3.0"
